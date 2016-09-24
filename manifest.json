@@ -7,11 +7,18 @@
     "web_accessible_resources": [
                     "jquery.min.js", "content.js"
     ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
     "content_scripts": [
         {
             "matches": ["*://*.yemeksepeti.com/siparis/*"],
             "js": ["jquery.min.js", "content.js"]
                 }
     ],
+    "browser_action": {
+        "default_title": "Yemeksepeti Discount Calculator"
+    },
     "permissions": ["activeTab", "*://*.yemeksepeti.com/siparis/*"]
 }
