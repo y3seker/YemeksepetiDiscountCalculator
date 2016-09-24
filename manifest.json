@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "DiscountCalc",
+    "author": "y3seker",
+    "description": "Item discount calculator for Yemeksepeti.com",
+    "version": "1.0",
+    "web_accessible_resources": [
+                    "jquery.min.js", "content.js"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://*.yemeksepeti.com/siparis/*"],
+            "js": ["jquery.min.js", "content.js"]
+                }
+    ],
+    "permissions": ["activeTab", "*://*.yemeksepeti.com/siparis/*"]
+}
