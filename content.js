@@ -1,5 +1,10 @@
-function isDiscount() {
-    return $(".subTotal").children().size() !== 0;
+var SUBTOTAL_VALUE_SELECTOR = "td.tdTotalValues > div.subTotal",
+    TOTAL_VALUE_SELECTOR = "td.tdTotalValues > div.total",
+    TOTAL_TEXT_SELECTOR = "td.tdTotalText > div.total",
+    PRICE_REGEX = /[1-9]*[1-9]*[0-9],[0-9][0-9]/;
+
+function hasDiscount() {
+    return $(SUBTOTAL_VALUE_SELECTOR).children().size() !== 0;
 }
 
 var selectedTotal = 0;
@@ -7,7 +12,7 @@ var selectedCounts = [];
 var $selectedTotal;
 
 $(document.body).ready(function () {
-    if (isDiscount()) {
+    if (hasDiscount()) {
         clearSelectedTotal();
         calculate();
     }
@@ -32,12 +37,12 @@ function updateSelectedTotal() {
 }
 
 function calculate() {
-    var stString = /[1-9]*[1-9][0-9],[0-9][0-9]/.exec($(".subTotal").text())[0];
-    var tString = /[1-9]*[1-9][0-9],[0-9][0-9]/.exec($(".total").text())[0];
+    var stString = PRICE_REGEX.exec($(SUBTOTAL_VALUE_SELECTOR).text())[0];
+    var tString = PRICE_REGEX.exec($(TOTAL_VALUE_SELECTOR).text())[0];
     var subTotal = parseFloat(stString.replace(',', '.'));
     var total = parseFloat(tString.replace(',', '.'));
 
-    var selectedTotalText = $('.tdTotalText').children(':first-child').next().clone();
+    var selectedTotalText = $(TOTAL_TEXT_SELECTOR).clone();
     selectedTotalText.empty().append("<br>").append("SEÇİLEN TOPLAM:");
     $('.tdTotalText').append(selectedTotalText);
 
@@ -61,7 +66,8 @@ function calculate() {
             var count = parseInt($(this).next().text().trim());
             var countDiv = $(this).next();
             countDiv.append("<div>" + selectedCounts[index - 1]);
-            $(this).next().next().append("<p style=\"color:#48912a;\">" + (count * discountPrice).toFixed(2) + " TL</p></b>");
+            if ($(this).next().next().children().size() === 0)
+                $(this).next().next().append("<p style=\"color:#48912a;\">" + (count * discountPrice).toFixed(2) + " TL</p></b>");
             $(this).prev().append("<div id=\"plus\"><b style=\"background-color: none; cursor: pointer; float: left; padding: 3px 5px; color:#000;\"> + </b>");
             $(this).prev().find("#plus").click(function () {
                 if (selectedCounts[index - 1] < count) {
