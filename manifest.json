@@ -5,7 +5,7 @@
     "description": "Item discount calculator for Yemeksepeti.com",
     "version": "1.0",
     "web_accessible_resources": [
-                    "jquery.min.js", "content.js"
+                    "jquery-2.2.4.min.js", "content.js"
     ],
     "background": {
         "scripts": ["background.js"],
@@ -14,7 +14,7 @@
     "content_scripts": [
         {
             "matches": ["*://*.yemeksepeti.com/siparis/*"],
-            "js": ["jquery.min.js", "content.js"]
+            "js": ["jquery-2.2.4.min.js", "content.js"]
                 }
     ],
     "browser_action": {
