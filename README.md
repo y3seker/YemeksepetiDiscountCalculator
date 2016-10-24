@@ -1,4 +1,4 @@
-## Yemeksepeti İndirim Hesaplayıcı 1.0
+## Yemeksepeti İndirim Hesaplayıcı 1.1
 
 Yemeksepeti'nin indirimli siparişleri için ürün bazında indirim hesaplayan Chrome/Firefox eklentisi.
 
