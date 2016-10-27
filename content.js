@@ -6,6 +6,7 @@ var SUBTOTAL_VALUE_SELECTOR = "td.tdTotalValues > div.subTotal",
 var selectedTotal = 0;
 var selectedCounts = [];
 var $selectedTotal;
+var ceptetebSelected = false;
 
 $(document.body).ready(function () {
     if (hasDiscount())
@@ -63,6 +64,11 @@ function inject() {
     $(".tdTotalValues").append($selectedTotal);
     $(".tdTotalValues").append($clearButton);
 
+    // Append cepteteb checkbox
+    $(".ys-basket > h3").append("<b style=\"position: absolute; right: 10px;\"><input type=\"checkbox\" id=\"ceptetebCheckbox\">Cepteteb</b>");	
+    $('#ceptetebCheckbox').change(function() {
+	    ceptetebSelected = this.checked;
+    });
     injectItems(total, subTotal);
 };
 
