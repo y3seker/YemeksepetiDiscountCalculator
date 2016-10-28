@@ -4,4 +4,4 @@ Yemeksepeti'nin indirimli siparişleri için ürün bazında indirim hesaplayan 
 
 ## Yükleme
 
-[YemeksepetiDiscountCalc.crx](https://github.com/y3seker/YemeksepetiDiscountCalc/releases) dosyasını indirin, Chrome/Firefox eklenti sayfasına sürükleyip, bırakın.
+[YemeksepetiDiscountCalc.crx/xpi](https://github.com/y3seker/YemeksepetiDiscountCalc/releases) dosyasını indirin, Chrome/Firefox eklenti sayfasına sürükleyip, bırakın.
