@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
+  <app appid='jijhfkppkminghahnpikmjjlckbkfpfc'>
+    <updatecheck codebase='https://github.com/y3seker/YemeksepetiDiscountCalculator/releases/download/V1.2/YemeksepetiDiscountCalc_V1.2.crx' version='1.2' />
+  </app>
+</gupdate>
